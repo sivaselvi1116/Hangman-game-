@@ -1,0 +1,20 @@
+import random
+
+word = random.choice(['cat', 'dog', 'bat'])
+guess = ['_'] * len(word)
+tries = 5
+
+while tries > 0 and '_' in guess:
+    print('Word:', ' '.join(guess))
+    letter = input('Guess a letter: ').lower()
+    if letter in word:
+        for i in range(len(word)):
+            if word[i] == letter:
+                guess[i] = letter
+    else:
+        tries -= 1
+        print('Wrong! Tries left:', tries)
+
+print('You win!' if '_' not in guess else f'You lose! Word was: {word}')
+
+
